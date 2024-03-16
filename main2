@@ -159,7 +159,7 @@ local function Load()
 
 	ServiceConnections.InputBeganConnection = UserInputService.InputBegan:Connect(function(Input)
 		if not Typing and Environment.Settings.Enabled then
-			if Input.KeyCode == Enum.KeyCode[Environment.Settings.TriggerKey] then
+			if Input.UserInputType == Enum.UserInputType.MouseButton2 then
 				if Environment.Settings.Toggle then
 					Running = not Running
 
@@ -176,7 +176,7 @@ local function Load()
 	ServiceConnections.InputEndedConnection = UserInputService.InputEnded:Connect(function(Input)
 		if not Typing and Environment.Settings.Enabled then
 			if not Environment.Settings.Toggle then
-				if Input.KeyCode == Enum.KeyCode[Environment.Settings.TriggerKey] then
+				if Input.UserInputType == Enum.UserInputType.MouseButton2 then
 					Running = false; CancelLock()
 				end
 			end
